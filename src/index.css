@@ -1,13 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --dark-purple: #190835;
+  --purple: #665589;
+  --light-purple: #b183ce;
+  --light-green: #a9fde5;
+  --green: #56dac2;
+  --light: rgb(243, 243, 243);
+  --dark: rgb(24, 24, 24);
+  --grey: rgb(168, 168, 168);
+  --light-grey: rgb(219, 219, 219);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Lato', sans-serif;
+  /* 1rem = 10px, 10/16 = 62.5% */
+  /* @include respond(tab-land) {
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include respond(tab-port) {
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+
+  @include respond(big-desk) {
+    font-size: 75%; //1rem = 12px, 12/16 = 75%
+  } */
+}
+
+body {
+  box-sizing: border-box;
+  padding: 2rem;
+  /* @include respond(tab-port) {
+    padding: 0;
+  } */
 }
