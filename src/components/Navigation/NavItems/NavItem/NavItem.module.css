@@ -7,13 +7,15 @@
 
 .NavItem a {
     text-decoration: none;
+    font-size: 1.8rem;
     height: 100%;
     box-sizing: border-box;
     display: block;
+    color: var(--light);
 }
 
 .NavItem a:hover, .NavItem a:active, .NavItem a.active {
-    color: #40A4C8;
+    color: var(--light-green);
 }
 
 @media (min-width: 500px) {
@@ -31,8 +33,8 @@
         border-bottom: 4px solid transparent;
     }
     .NavItem a:hover, .NavItem a:active, .NavItem a.active {
-        background-color: #8F5C2C;
-        border-bottom: 4px solid #40A4C8;
-        color: white;
+        background-color: rgb(58, 58, 58);
+        border-bottom: 4px solid var(--green);
+        color: var(--light);
     }
 }

@@ -8,7 +8,7 @@ import styles from "./NavItems.module.css";
 
 const NavItems = props => {
   return (
-    <ul>
+    <ul className={styles.NavItems}>
       <NavItem link="/">Home</NavItem>
       <NavItem link="/movies">Movies</NavItem>
       <NavItem link="/tv">TV</NavItem>
