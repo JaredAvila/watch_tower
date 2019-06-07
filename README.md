@@ -1,4 +1,4 @@
-#Watch Tower
+# Watch Tower
 
 A media application build with React, Redux and utilizing The Movie DB api.
 
