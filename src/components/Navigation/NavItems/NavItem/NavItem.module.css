@@ -1,27 +1,30 @@
 .NavItem {
-    margin: 10px 0;
     box-sizing: border-box;
     display: block;
+    font-size: 2.8rem;
     width: 100%;
 }
 
 .NavItem a {
     text-decoration: none;
-    font-size: 1.8rem;
+    padding: 1rem 1.6rem;
     height: 100%;
     box-sizing: border-box;
     display: block;
-    color: var(--light);
+    color: #a9fde5;
+    transition: all 250ms ease;
 }
 
 .NavItem a:hover, .NavItem a:active, .NavItem a.active {
     color: var(--light-green);
+    background-color: #665589;
 }
 
 @media (min-width: 500px) {
     .NavItem {
         margin: 0;
         display: flex;
+        font-size: 1.8rem;
         height: 100%;
         width: auto;
         align-items: center;
@@ -33,8 +36,8 @@
         border-bottom: 4px solid transparent;
     }
     .NavItem a:hover, .NavItem a:active, .NavItem a.active {
-        background-color: rgb(58, 58, 58);
-        border-bottom: 4px solid var(--green);
-        color: var(--light);
+        background-color: #665589;
+        border-bottom: 4px solid #56dac2;
+        color: rgb(243, 243, 243);
     }
 }

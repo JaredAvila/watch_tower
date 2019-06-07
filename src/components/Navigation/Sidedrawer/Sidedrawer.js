@@ -8,7 +8,7 @@ import NavItems from "../NavItems/NavItems";
 import styles from "./Sidedrawer.module.css";
 
 const Sidedrawer = props => {
-  let classes = [styles.SideDrawer, styles.Close];
+  let classes = [styles.SideDrawer, styles.Open];
   if (props.open) {
     classes = [styles.SideDrawer, styles.Open];
   }

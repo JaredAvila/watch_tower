@@ -1,6 +1,15 @@
 .Logo {
     height: 100%;
     box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    color: var(--light);
+    align-items: center;
+    letter-spacing: .4rem;
+}
+
+.Logo>* {
+    margin: 0 1rem;
 }
 
 .Logo img {
