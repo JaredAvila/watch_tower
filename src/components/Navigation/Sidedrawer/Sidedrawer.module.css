@@ -9,7 +9,7 @@
     background-color: rgba(24, 24, 24);
     padding: 3.2rem 0;
     box-sizing: border-box;
-    transition: transform 0.3s ease-out;
+    transition: all 300ms ease-out;
 }
 
 @media (min-width: 500px) {
@@ -23,7 +23,7 @@
 }
 
 .Close {
-    transform: translateX(-100%)
+    transform: translateX(100%)
 }
 
 .Logo {

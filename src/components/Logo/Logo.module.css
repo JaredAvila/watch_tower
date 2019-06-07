@@ -1,4 +1,4 @@
-.Logo {
+.Logo, .Right {
     height: 100%;
     box-sizing: border-box;
     display: flex;
@@ -8,10 +8,33 @@
     letter-spacing: .4rem;
 }
 
-.Logo>* {
+.Logo {
+    justify-content: space-between;
+}
+
+.Right>* {
     margin: 0 1rem;
 }
 
-.Logo img {
+.Right img {
     height: 100%;
+}
+
+.Logo i {
+    font-size: 2.4rem;
+    color: rgb(243, 243, 243);
+    display: none;
+}
+
+.Close {
+    visibility: hidden;
+}
+
+@media (max-width: 500px) {
+    .Logo h1 {
+        font-size: 1.2rem;
+    }
+    .Logo i {
+        display: block;
+    }
 }

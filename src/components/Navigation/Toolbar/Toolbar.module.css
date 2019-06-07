@@ -25,4 +25,7 @@
     .DesktopOnly {
         display: none;
     }
+    .Logo {
+        width: 100vw;
+    }
 }
