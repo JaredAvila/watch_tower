@@ -1,0 +1,68 @@
+.Headline {
+    color: rgb(243, 243, 243);
+    width: fit-content;
+    margin: auto;
+    text-transform: uppercase;
+    letter-spacing: .3rem;
+}
+
+.Movies {
+    width: 90rem;
+    height: 50rem;
+    margin: 2rem auto;
+    position: relative;
+}
+
+.Main img {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.MovieInfo {
+    background-color: rgba(25, 8, 53, .8);
+    padding: 2rem;
+    color: rgb(243, 243, 243);
+    font-size: 1.6rem;
+    border-radius: 4px;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    display: flex;
+    align-items: center;
+    cursor: default;
+}
+
+.MovieInfo h1 {
+    color: rgb(177, 131, 206);
+    letter-spacing: .2rem;
+    text-decoration: underline;
+    padding-bottom: 1rem;
+}
+
+.MovieInfo i {
+    padding-left: 4rem;
+    font-size: 3rem;
+    cursor: pointer;
+}
+
+.Prev, .Next {
+    padding: 2rem;
+    border: none;
+    font-size: 3rem;
+    position: absolute;
+    top: 45%;
+    color: rgb(243, 243, 243);
+    cursor: pointer;
+    background-color: #665589;
+    outline-color: rgb(169, 253, 229);
+}
+
+.Next {
+    right: 0;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.Prev {
+    border-radius: 0 1rem 1rem 0;
+}
