@@ -5,21 +5,20 @@ import styles from "./NowPlaying.module.css";
 const PopMovies = props => {
   let markup = null;
   if (props.movie) {
-    console.log(props);
     markup = (
       <Fragment>
         <h1 className={styles.Headline}>In theaters now</h1>
         <div className={styles.Movies}>
           <div className={styles.Main}>
-            <img src={props.img} alt="Main attraction" />
+            <img src={props.movie.imgUrl} alt="Main attraction" />
           </div>
           <div className={styles.MovieInfo}>
             <div>
-              <h1>{props.movie.title}</h1>
-              <h3>Avgerage Rating: {props.movie.vote_average}</h3>
-              <h3>Total votes: {props.movie.vote_count}</h3>
+              <h1>{props.movie.movieData.title}</h1>
+              <h3>Avgerage Rating: {props.movie.movieData.vote_average}</h3>
+              <h3>Total votes: {props.movie.movieData.vote_count}</h3>
             </div>
-            {!props.liked ? (
+            {!props.movie.liked ? (
               <i
                 className="far fa-heart"
                 title="Add to likes list"

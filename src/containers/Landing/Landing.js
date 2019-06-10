@@ -69,12 +69,10 @@ class Landing extends Component {
       <div className={styles.Landing}>
         {this.state.nowPlaying ? (
           <NowPlaying
-            movie={this.state.nowPlaying[this.state.nowPlayingIndex].movieData}
-            img={this.state.nowPlaying[this.state.nowPlayingIndex].imgUrl}
+            movie={this.state.nowPlaying[this.state.nowPlayingIndex]}
             next={this.nowPlayingSliderNextHandler}
             prev={this.nowPlayingSliderPrevHandler}
             likeToggle={this.toggleLikeList}
-            liked={this.state.nowPlaying[this.state.nowPlayingIndex].liked}
           />
         ) : null}
       </div>
