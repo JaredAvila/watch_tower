@@ -1,61 +1,21 @@
 import React, { Component } from "react";
 import styles from "./Landing.module.css";
-import axios from "axios";
+import { connect } from "react-redux";
 
 import NowPlaying from "../../components/NowPlaying/NowPlaying";
+import * as actions from "../../store/actions";
 
 class Landing extends Component {
-  state = {
-    nowPlaying: null,
-    nowPlayingIndex: 0,
-    upComing: [],
-    airingToday: [],
-    popularTV: [],
-    searchRes: []
-  };
-
   componentDidMount = () => {
     //get nowPlaying movie data
-    axios
-      .get(
-        "https://api.themoviedb.org/3/movie/now_playing?api_key=e950813aa61709dfde6ecca87c8e2279&language=en-US&page=1"
-      )
-      .then(res => {
-        const nowPlayingArray = [];
-        const url = "http://image.tmdb.org/t/p/original";
-        res.data.results.forEach(movie => {
-          nowPlayingArray.push({
-            movieData: movie,
-            imgUrl: url + movie.backdrop_path,
-
-            //TODO: get like for each movie
-            liked: false
-          });
-        });
-        this.setState({ nowPlaying: nowPlayingArray });
-      })
-      .catch(err => {
-        if (err) {
-          console.log(err);
-        }
-      });
+    this.props.onFetchNowPlaying();
   };
 
   nowPlayingSliderNextHandler = () => {
-    // 1. only switch if there is a next photo
-    if (this.state.nowPlayingIndex < this.state.nowPlaying.length - 1) {
-      //2. update current img index
-      const newIndex = this.state.nowPlayingIndex + 1;
-      this.setState({ nowPlayingIndex: newIndex });
-    }
+    this.props.onIncNowPlaying(this.props.currentIndex);
   };
   nowPlayingSliderPrevHandler = () => {
-    // 1. only switch if there is a prev photo
-    if (this.state.nowPlayingIndex > 0) {
-      // 2. update current img index
-      const newIndex = this.state.nowPlayingIndex - 1;
-      this.setState({ nowPlayingIndex: newIndex });
-    }
+    this.props.onDecNowPlaying(this.props.currentIndex);
   };
 
   toggleLikeList = () => {
@@ -67,9 +27,9 @@ class Landing extends Component {
   render() {
     return (
       <div className={styles.Landing}>
-        {this.state.nowPlaying ? (
+        {this.props.nowPlaying ? (
           <NowPlaying
-            movie={this.state.nowPlaying[this.state.nowPlayingIndex]}
+            movie={this.props.nowPlaying[this.props.currentIndex]}
             next={this.nowPlayingSliderNextHandler}
             prev={this.nowPlayingSliderPrevHandler}
             likeToggle={this.toggleLikeList}
@@ -80,4 +40,22 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+const mapStateToProps = state => {
+  return {
+    nowPlaying: state.nowPlaying.nowPlaying,
+    currentIndex: state.nowPlaying.nowPlayingIndex
+  };
+};
+
+const mapDispatchToProps = disptach => {
+  return {
+    onFetchNowPlaying: () => disptach(actions.fetchNowPlaying()),
+    onIncNowPlaying: index => disptach(actions.incrementIndex(index)),
+    onDecNowPlaying: index => disptach(actions.decrementIndex(index))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Landing);
