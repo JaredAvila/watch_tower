@@ -35,12 +35,10 @@ export const fetchNowPlaying = () => {
           nowPlayingArray.push({
             movieData: movie,
             imgUrl: url + movie.backdrop_path,
-
             //TODO: get like for each movie
             liked: false
           });
         });
-        // this.setState({ nowPlaying: nowPlayingArray });
         dispatch(setNowPlayingMovies(nowPlayingArray));
       })
       .catch(err => {

@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 
 import styles from "./NowPlaying.module.css";
 
-const PopMovies = props => {
+const NowPlaying = props => {
   let markup = null;
   if (props.movie) {
     markup = (
@@ -46,4 +46,4 @@ const PopMovies = props => {
   return markup;
 };
 
-export default PopMovies;
+export default NowPlaying;

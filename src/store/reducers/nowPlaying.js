@@ -10,7 +10,7 @@ const incrementIndex = state => {
   if (state.nowPlayingIndex < state.nowPlaying.length - 1) {
     return state.nowPlayingIndex + 1;
   } else {
-    return state.nowPlayingIndex;
+    return 0;
   }
 };
 
@@ -18,7 +18,7 @@ const decrementIndex = state => {
   if (state.nowPlayingIndex > 0) {
     return state.nowPlayingIndex - 1;
   } else {
-    return state.nowPlayingIndex;
+    return state.nowPlaying.length - 1;
   }
 };
 

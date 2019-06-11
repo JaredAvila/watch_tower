@@ -6,10 +6,26 @@ import NowPlaying from "../../components/NowPlaying/NowPlaying";
 import * as actions from "../../store/actions";
 
 class Landing extends Component {
-  componentDidMount = () => {
-    //get nowPlaying movie data
-    this.props.onFetchNowPlaying();
+  state = {
+    autoSlide: true
   };
+
+  timer = null;
+
+  componentDidMount() {
+    this.props.onFetchNowPlaying();
+  }
+
+  componentDidUpdate() {
+    clearTimeout(this.timer);
+    this.timer = setTimeout(() => {
+      this.nowPlayingSliderNextHandler();
+    }, 6000);
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
 
   nowPlayingSliderNextHandler = () => {
     this.props.onIncNowPlaying(this.props.currentIndex);
@@ -21,6 +37,7 @@ class Landing extends Component {
   toggleLikeList = () => {
     //TODO: add/remove from likes list.
     // re-route to login if not logged in
+    this.setState({ autoSlide: false });
     console.log("clicked");
   };
 
