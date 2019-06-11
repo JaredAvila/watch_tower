@@ -19,7 +19,7 @@ export const fetchPopularMovies = () => {
         const url = "http://image.tmdb.org/t/p/w300";
         res.data.results.forEach(movie => {
           popularMovieArray.push({
-            movieData: movie,
+            data: movie,
             imgUrl: url + movie.poster_path,
             //TODO: get like for each movie
             liked: false

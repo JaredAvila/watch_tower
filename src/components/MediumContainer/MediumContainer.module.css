@@ -1,14 +1,14 @@
-.PopularMovies {
+.MediumContainer {
     padding-top: 20rem;
 }
 
-.Movies {
+.Medium {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-.Movies>*:not(:last-child) {
+.Medium>*:not(:last-child) {
     margin-right: 1.5rem;
 }
 

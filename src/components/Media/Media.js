@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import Button from "../Button/Button";
 
@@ -7,18 +7,27 @@ import styles from "./Media.module.css";
 const Media = props => {
   return (
     <div className={styles.Movie}>
-      <img src={props.movie.imgUrl} alt="" />
-      {props.movie.movieData.title ? (
-        <h2 className={styles.Title}>{props.movie.movieData.title}</h2>
+      <img src={props.media.imgUrl} alt="" />
+      {props.media.data.title ? (
+        <Fragment>
+          <h2 className={styles.Title}>{props.media.data.title}</h2>
+          <p>
+            <em>Releasd: </em>
+            {props.media.data.release_date}
+          </p>
+        </Fragment>
       ) : (
-        <h2 className={styles.Title}>{props.movie.movieData.name}</h2>
+        <Fragment>
+          <h2 className={styles.Title}>{props.media.data.name}</h2>
+          <p>
+            <em>First Air Date: </em>
+            {props.media.data.first_air_date}
+          </p>
+        </Fragment>
       )}
-      <p>
-        <em>Releasd: </em>
-        {props.movie.movieData.release_date}
-      </p>
+
       <p className={styles.botMarg}>
-        Average Rating: {props.movie.movieData.vote_average}
+        Average Rating: {props.media.data.vote_average}
       </p>
       <Button>View More</Button>
     </div>

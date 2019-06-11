@@ -33,7 +33,7 @@ export const fetchNowPlaying = () => {
         const url = "http://image.tmdb.org/t/p/original";
         res.data.results.forEach(movie => {
           nowPlayingArray.push({
-            movieData: movie,
+            data: movie,
             imgUrl: url + movie.backdrop_path,
             //TODO: get like for each movie
             liked: false

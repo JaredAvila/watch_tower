@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import NowPlaying from "../../components/NowPlaying/NowPlaying";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions";
-import PopularMovies from "../../components/PopularMovies/PopularMovies";
-import TopRatedTv from "../../components/TopRatedTv/TopRatedTv";
+import MediumContainer from "../../components/MediumContainer/MediumContainer";
 
 class Landing extends Component {
   timer = null;
@@ -15,6 +14,7 @@ class Landing extends Component {
     this.props.onFetchNowPlaying();
     this.props.onFetchPopularMovies();
     this.props.onFetchTopRatedTv();
+    this.props.onFetchNowOnAir();
   }
 
   componentDidUpdate() {
@@ -25,7 +25,7 @@ class Landing extends Component {
   }
 
   componentWillUnmount() {
-    console.log(this.props.topRatedShows);
+    console.log(this.props.nowOnAir);
     clearTimeout(this.timer);
   }
 
@@ -56,10 +56,22 @@ class Landing extends Component {
           <Spinner />
         )}
         {this.props.popularMovies ? (
-          <PopularMovies movies={this.props.popularMovies} />
+          <MediumContainer
+            medium={this.props.popularMovies}
+            title="Popular Movies"
+          />
         ) : null}
         {this.props.topRatedShows ? (
-          <TopRatedTv shows={this.props.topRatedShows} />
+          <MediumContainer
+            medium={this.props.topRatedShows}
+            title="Top Rated TV Shows"
+          />
+        ) : null}
+        {this.props.nowOnAir ? (
+          <MediumContainer
+            medium={this.props.nowOnAir}
+            title="Now On the Air"
+          />
         ) : null}
       </div>
     );
@@ -71,7 +83,8 @@ const mapStateToProps = state => {
     nowPlaying: state.nowPlaying.nowPlaying,
     currentIndex: state.nowPlaying.nowPlayingIndex,
     popularMovies: state.popularMovies.popularMovies,
-    topRatedShows: state.topRatedTv.topRatedShows
+    topRatedShows: state.topRatedTv.topRatedShows,
+    nowOnAir: state.nowOnAir.nowOnAir
   };
 };
 
@@ -81,7 +94,8 @@ const mapDispatchToProps = dispatch => {
     onIncNowPlaying: index => dispatch(actions.incrementIndex(index)),
     onDecNowPlaying: index => dispatch(actions.decrementIndex(index)),
     onFetchPopularMovies: () => dispatch(actions.fetchPopularMovies()),
-    onFetchTopRatedTv: () => dispatch(actions.fetchTopRatedTv())
+    onFetchTopRatedTv: () => dispatch(actions.fetchTopRatedTv()),
+    onFetchNowOnAir: () => dispatch(actions.fetchOnAir())
   };
 };
 

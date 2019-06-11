@@ -14,9 +14,9 @@ const NowPlaying = props => {
           </div>
           <div className={styles.MovieInfo}>
             <div>
-              <h1>{props.movie.movieData.title}</h1>
-              <h3>Avgerage Rating: {props.movie.movieData.vote_average}</h3>
-              <h3>Total votes: {props.movie.movieData.vote_count}</h3>
+              <h1>{props.movie.data.title}</h1>
+              <h3>Avgerage Rating: {props.movie.data.vote_average}</h3>
+              <h3>Total votes: {props.movie.data.vote_count}</h3>
             </div>
             {!props.movie.liked ? (
               <i

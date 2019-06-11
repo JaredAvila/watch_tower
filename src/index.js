@@ -11,13 +11,15 @@ import * as serviceWorker from "./serviceWorker";
 import nowPlayingReducer from "./store/reducers/nowPlaying";
 import popularMoviesReducer from "./store/reducers/popularMovies";
 import topRatedTvReducer from "./store/reducers/topRatedTv";
+import nowOnAirReducer from "./store/reducers/nowOnAir";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   nowPlaying: nowPlayingReducer,
   popularMovies: popularMoviesReducer,
-  topRatedTv: topRatedTvReducer
+  topRatedTv: topRatedTvReducer,
+  nowOnAir: nowOnAirReducer
 });
 
 const middleware = [thunk];
