@@ -1,9 +1,13 @@
 import React, { Fragment } from "react";
 
+import styles from "./Button.module.css";
+
 const Button = props => {
   return (
     <Fragment>
-      <button onClick={props.click}>{props.children}</button>
+      <button className={styles.Button} onClick={props.click}>
+        {props.children}
+      </button>
     </Fragment>
   );
 };

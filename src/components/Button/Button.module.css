@@ -1,0 +1,25 @@
+.Button {
+    padding: 1.2rem 2.5rem;
+    border: none;
+    outline: none;
+    border-radius: 2.5rem;
+    font-size: 1.6rem;
+    background-color: rgb(86, 218, 194);
+    color: rgb(243, 243, 243);
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.Button:hover {
+    background-color: rgb(169, 253, 229);
+    transform: translateY(-.7rem);
+    color: rgb(168, 168, 168);
+    box-shadow: 0 .4rem .8rem rgb(54, 121, 121);
+}
+
+.Button:active {
+    background-color: rgb(86, 218, 194);
+    color: rgb(243, 243, 243);
+    transform: translateY(-.1rem);
+    box-shadow: none;
+}
