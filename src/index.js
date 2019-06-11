@@ -10,12 +10,14 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import nowPlayingReducer from "./store/reducers/nowPlaying";
 import popularMoviesReducer from "./store/reducers/popularMovies";
+import topRatedTvReducer from "./store/reducers/topRatedTv";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   nowPlaying: nowPlayingReducer,
-  popularMovies: popularMoviesReducer
+  popularMovies: popularMoviesReducer,
+  topRatedTv: topRatedTvReducer
 });
 
 const middleware = [thunk];

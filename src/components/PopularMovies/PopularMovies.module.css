@@ -1,5 +1,5 @@
 .PopularMovies {
-    padding-top: 30rem;
+    padding-top: 20rem;
 }
 
 .Movies {
@@ -13,7 +13,7 @@
 }
 
 .Title {
-    color: rgb(243, 243, 243);
+    color: rgb(177, 131, 206);
     font-size: 3rem;
     margin-bottom: 2rem;
     letter-spacing: .2rem;

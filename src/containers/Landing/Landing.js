@@ -6,6 +6,7 @@ import NowPlaying from "../../components/NowPlaying/NowPlaying";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions";
 import PopularMovies from "../../components/PopularMovies/PopularMovies";
+import TopRatedTv from "../../components/TopRatedTv/TopRatedTv";
 
 class Landing extends Component {
   timer = null;
@@ -13,6 +14,7 @@ class Landing extends Component {
   componentDidMount() {
     this.props.onFetchNowPlaying();
     this.props.onFetchPopularMovies();
+    this.props.onFetchTopRatedTv();
   }
 
   componentDidUpdate() {
@@ -23,7 +25,7 @@ class Landing extends Component {
   }
 
   componentWillUnmount() {
-    console.log(this.props.popularMovies);
+    console.log(this.props.topRatedShows);
     clearTimeout(this.timer);
   }
 
@@ -56,6 +58,9 @@ class Landing extends Component {
         {this.props.popularMovies ? (
           <PopularMovies movies={this.props.popularMovies} />
         ) : null}
+        {this.props.topRatedShows ? (
+          <TopRatedTv shows={this.props.topRatedShows} />
+        ) : null}
       </div>
     );
   }
@@ -65,16 +70,18 @@ const mapStateToProps = state => {
   return {
     nowPlaying: state.nowPlaying.nowPlaying,
     currentIndex: state.nowPlaying.nowPlayingIndex,
-    popularMovies: state.popularMovies.popularMovies
+    popularMovies: state.popularMovies.popularMovies,
+    topRatedShows: state.topRatedTv.topRatedShows
   };
 };
 
-const mapDispatchToProps = disptach => {
+const mapDispatchToProps = dispatch => {
   return {
-    onFetchNowPlaying: () => disptach(actions.fetchNowPlaying()),
-    onIncNowPlaying: index => disptach(actions.incrementIndex(index)),
-    onDecNowPlaying: index => disptach(actions.decrementIndex(index)),
-    onFetchPopularMovies: () => disptach(actions.fetchPopularMovies())
+    onFetchNowPlaying: () => dispatch(actions.fetchNowPlaying()),
+    onIncNowPlaying: index => dispatch(actions.incrementIndex(index)),
+    onDecNowPlaying: index => dispatch(actions.decrementIndex(index)),
+    onFetchPopularMovies: () => dispatch(actions.fetchPopularMovies()),
+    onFetchTopRatedTv: () => dispatch(actions.fetchTopRatedTv())
   };
 };
 

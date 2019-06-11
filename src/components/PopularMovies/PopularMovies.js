@@ -1,6 +1,6 @@
 import React from "react";
 
-import Movie from "../Movie/Movie";
+import Media from "../Media/Media";
 
 import styles from "./PopularMovies.module.css";
 
@@ -25,8 +25,8 @@ const PopularMovies = props => {
         title: newTitle
       }
     };
-    // adds to array with only 8 of the most popular movies in it
-    if (popMovies.length < 8) {
+    // adds to array with only 4 of the most popular movies in it
+    if (popMovies.length < 4) {
       popMovies.push(newMovie);
     }
   });
@@ -35,7 +35,7 @@ const PopularMovies = props => {
       <h1 className={styles.Title}>Popular Movies</h1>
       <div className={styles.Movies}>
         {popMovies.map(movie => {
-          return <Movie key={movie.movieData.title} movie={movie} />;
+          return <Media key={movie.movieData.title} movie={movie} />;
         })}
       </div>
     </div>
