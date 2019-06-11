@@ -3,27 +3,27 @@ import styles from "./Landing.module.css";
 import { connect } from "react-redux";
 
 import NowPlaying from "../../components/NowPlaying/NowPlaying";
+import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions";
+import PopularMovies from "../../components/PopularMovies/PopularMovies";
 
 class Landing extends Component {
-  state = {
-    autoSlide: true
-  };
-
   timer = null;
 
   componentDidMount() {
     this.props.onFetchNowPlaying();
+    this.props.onFetchPopularMovies();
   }
 
   componentDidUpdate() {
     clearTimeout(this.timer);
     this.timer = setTimeout(() => {
       this.nowPlayingSliderNextHandler();
-    }, 6000);
+    }, 10000);
   }
 
   componentWillUnmount() {
+    console.log(this.props.popularMovies);
     clearTimeout(this.timer);
   }
 
@@ -37,7 +37,6 @@ class Landing extends Component {
   toggleLikeList = () => {
     //TODO: add/remove from likes list.
     // re-route to login if not logged in
-    this.setState({ autoSlide: false });
     console.log("clicked");
   };
 
@@ -51,6 +50,11 @@ class Landing extends Component {
             prev={this.nowPlayingSliderPrevHandler}
             likeToggle={this.toggleLikeList}
           />
+        ) : (
+          <Spinner />
+        )}
+        {this.props.popularMovies ? (
+          <PopularMovies movies={this.props.popularMovies} />
         ) : null}
       </div>
     );
@@ -60,7 +64,8 @@ class Landing extends Component {
 const mapStateToProps = state => {
   return {
     nowPlaying: state.nowPlaying.nowPlaying,
-    currentIndex: state.nowPlaying.nowPlayingIndex
+    currentIndex: state.nowPlaying.nowPlayingIndex,
+    popularMovies: state.popularMovies.popularMovies
   };
 };
 
@@ -68,7 +73,8 @@ const mapDispatchToProps = disptach => {
   return {
     onFetchNowPlaying: () => disptach(actions.fetchNowPlaying()),
     onIncNowPlaying: index => disptach(actions.incrementIndex(index)),
-    onDecNowPlaying: index => disptach(actions.decrementIndex(index))
+    onDecNowPlaying: index => disptach(actions.decrementIndex(index)),
+    onFetchPopularMovies: () => disptach(actions.fetchPopularMovies())
   };
 };
 

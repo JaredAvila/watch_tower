@@ -1,0 +1,20 @@
+.PopularMovies {
+    padding-top: 30rem;
+}
+
+.Movies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.Movies>*:not(:last-child) {
+    margin-right: 1.5rem;
+}
+
+.Title {
+    color: rgb(243, 243, 243);
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    letter-spacing: .2rem;
+}

@@ -9,11 +9,13 @@ import thunk from "redux-thunk";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import nowPlayingReducer from "./store/reducers/nowPlaying";
+import popularMoviesReducer from "./store/reducers/popularMovies";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
-  nowPlaying: nowPlayingReducer
+  nowPlaying: nowPlayingReducer,
+  popularMovies: popularMoviesReducer
 });
 
 const middleware = [thunk];

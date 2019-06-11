@@ -32,7 +32,13 @@ const NowPlaying = props => {
               />
             )}
           </div>
-          <button className={styles.Prev} onClick={props.prev}>
+          <button
+            className={styles.Prev}
+            onClick={() => {
+              console.log("stuff and things");
+              props.prev();
+            }}
+          >
             <i className="fas fa-chevron-left" />
           </button>
           <button className={styles.Next} onClick={props.next}>
