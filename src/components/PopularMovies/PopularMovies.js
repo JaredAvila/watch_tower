@@ -7,8 +7,27 @@ import styles from "./PopularMovies.module.css";
 const PopularMovies = props => {
   const popMovies = [];
   props.movies.forEach(movie => {
+    // makes sure the title isn't too long - UI
+    let shortTitle = "";
+    let newTitle = "";
+    // if title is too long is cuts and add "..." to the end
+    if (movie.movieData.title.length > 24) {
+      shortTitle = movie.movieData.title.split("");
+      newTitle = shortTitle.slice(0, 15).join("") + "...";
+    } else {
+      newTitle = movie.movieData.title;
+    }
+    // constructs new movie object with new title
+    let newMovie = {
+      ...movie,
+      movieData: {
+        ...movie.movieData,
+        title: newTitle
+      }
+    };
+    // adds to array with only 8 of the most popular movies in it
     if (popMovies.length < 8) {
-      popMovies.push(movie);
+      popMovies.push(newMovie);
     }
   });
   return (
