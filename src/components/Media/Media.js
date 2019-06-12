@@ -12,7 +12,7 @@ const Media = props => {
         <Fragment>
           <h2 className={styles.Title}>{props.media.data.title}</h2>
           <p>
-            <em>Releasd: </em>
+            <em>Release Date: </em>
             {props.media.data.release_date}
           </p>
         </Fragment>
@@ -20,8 +20,7 @@ const Media = props => {
         <Fragment>
           <h2 className={styles.Title}>{props.media.data.name}</h2>
           <p>
-            <em>First Air Date: </em>
-            {props.media.data.first_air_date}
+            <em>Original Air Date: </em> {props.media.data.first_air_date}
           </p>
         </Fragment>
       )}
