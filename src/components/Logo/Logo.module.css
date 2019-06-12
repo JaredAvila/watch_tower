@@ -30,7 +30,40 @@
     visibility: hidden;
 }
 
+.Form {
+    margin-right: 2rem;
+}
+
+.Form input, .Form button {
+    padding: 1rem 2rem;
+    border: none;
+    outline: none;
+    font-size: 1.6rem;
+}
+
+.Form input {
+    border-radius: 2rem 0 0 2rem;
+}
+
+.Form input:focus {
+    background-color: rgb(223, 255, 246);
+}
+
+.Form button {
+    border-radius: 0 2rem 2rem 0;
+    cursor: pointer;
+    background-color: rgb(177, 131, 206);
+    transition: all 200ms ease;
+}
+
+.Form button:hover {
+    background-color: rgb(211, 173, 235);
+}
+
 @media (max-width: 500px) {
+    .Form {
+        margin-right: 0rem;
+    }
     .Right img {
         height: 70%;
     }
