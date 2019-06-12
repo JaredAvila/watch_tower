@@ -1,3 +1,7 @@
 .SearchResults {
-    padding: 5rem;
+    padding: 10rem;
+}
+
+.SearchResults i {
+    font-size: 6rem;
 }
