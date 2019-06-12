@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import axios from "axios";
+import { apiKey } from "../../keys/keys";
 
 const setPopularMovies = movies => {
   return {
@@ -12,11 +13,13 @@ export const fetchPopularMovies = () => {
   return dispatch => {
     axios
       .get(
-        "https://api.themoviedb.org/3/movie/popular?api_key=e950813aa61709dfde6ecca87c8e2279&language=en-US&page=1"
+        "https://api.themoviedb.org/3/movie/popular?api_key=" +
+          apiKey +
+          "&language=en-US&page=1"
       )
       .then(res => {
         const popularMovieArray = [];
-        const url = "http://image.tmdb.org/t/p/w300";
+        const url = "http://image.tmdb.org/t/p/w400";
         res.data.results.forEach(movie => {
           popularMovieArray.push({
             data: movie,

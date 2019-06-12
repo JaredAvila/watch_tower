@@ -1,6 +1,6 @@
 .SideDrawer {
     position: fixed;
-    width: 29rem;
+    width: 32rem;
     max-width: 80%;
     height: 100%;
     right: 0;
@@ -10,6 +10,16 @@
     padding: 3.2rem 0;
     box-sizing: border-box;
     transition: all 300ms ease-out;
+}
+
+.Logo {
+    display: flex;
+    align-items: center;
+}
+
+.Logo h1 {
+    color: white;
+    font-size: 2.3rem;
 }
 
 @media (min-width: 500px) {

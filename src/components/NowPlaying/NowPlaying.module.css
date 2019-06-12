@@ -1,3 +1,7 @@
+.Container {
+    height: fit-content;
+}
+
 .Headline {
     color: rgb(243, 243, 243);
     width: fit-content;
@@ -7,8 +11,7 @@
 }
 
 .Movies {
-    width: 90rem;
-    height: 50rem;
+    width: 70%;
     margin: 2rem auto;
     position: relative;
 }

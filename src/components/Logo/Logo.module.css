@@ -20,7 +20,7 @@
     height: 100%;
 }
 
-.Logo i {
+.Menu {
     font-size: 2.4rem;
     color: rgb(243, 243, 243);
     display: none;
@@ -31,10 +31,32 @@
 }
 
 @media (max-width: 500px) {
-    .Logo h1 {
-        font-size: 1.2rem;
+    .Right img {
+        height: 70%;
     }
-    .Logo i {
+    .Menu {
         display: block;
+    }
+    .Right h1 {
+        display: none;
+    }
+    .Form input, .Form button {
+        padding: .5rem 1rem;
+        border: none;
+        outline: none;
+    }
+    .Form input {
+        border-radius: 2rem 0 0 2rem;
+    }
+    .Form input:focus {
+        background-color: rgb(223, 255, 246);
+    }
+    .Form button {
+        border-radius: 0 2rem 2rem 0;
+        cursor: pointer;
+        background-color: rgb(177, 131, 206);
+    }
+    #fullSizedForm {
+        display: none;
     }
 }

@@ -20,6 +20,7 @@ const Sidedrawer = props => {
       <div className={classes.join(" ")}>
         <div className={styles.Logo}>
           <Logo open={props.open} />
+          <h1>The Watch Tower</h1>
         </div>
         <nav>
           <NavItems />

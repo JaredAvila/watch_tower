@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 
 import styles from "./NowPlaying.module.css";
 
@@ -6,7 +6,7 @@ const NowPlaying = props => {
   let markup = null;
   if (props.movie) {
     markup = (
-      <Fragment>
+      <div className={styles.Container}>
         <h1 className={styles.Headline}>In theaters now</h1>
         <div className={styles.Movies}>
           <div className={styles.Main}>
@@ -45,7 +45,7 @@ const NowPlaying = props => {
             <i className="fas fa-chevron-right" />
           </button>
         </div>
-      </Fragment>
+      </div>
     );
   }
 
