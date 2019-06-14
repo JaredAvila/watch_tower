@@ -1,7 +1,13 @@
 .SearchResults {
     padding: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: rgb(24, 24, 24);
 }
 
-.SearchResults i {
-    font-size: 6rem;
+.SearchResults h1 {
+    color: rgb(243, 243, 243);
+    width: 100vw;
+    font-size: 2.7rem;
 }

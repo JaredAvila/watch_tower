@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { apiKey } from "../../keys/keys";
+import { formatTitle } from "../hoc/formatTitle";
 
 import Media from "../Media/Media";
 
@@ -8,22 +11,45 @@ import styles from "./SearchResults.module.css";
 
 class SearchResults extends Component {
   state = {
-    results: [],
+    results: null,
     query: ""
   };
 
   componentDidMount() {
     this.setState({ query: this.props.match.params.query });
+    axios
+      .get(
+        "https://api.themoviedb.org/3/search/multi?api_key=" +
+          apiKey +
+          "&language=en-US&query=" +
+          this.props.match.params.query +
+          "&page=1&include_adult=false"
+      )
+      .then(res => {
+        const resArray = [];
+        res.data.results.forEach(res => {
+          const url = "http://image.tmdb.org/t/p/w400";
+          let temp = {
+            data: res,
+            imgUrl: url + res.poster_path,
+            liked: false
+          };
+          let newMedia = formatTitle(temp);
+          resArray.push(newMedia);
+        });
+        this.setState({ results: resArray });
+      })
+      .catch(err => console.log(err));
   }
 
   render() {
-    const returned = this.state.results.map(res => {
-      return <Media media={res} />;
-    });
     return (
       <div className={styles.SearchResults}>
-        {this.state.results.length > 0 ? (
-          { returned }
+        <h1>Search Results for {this.state.query}</h1>
+        {this.state.results ? (
+          this.state.results.map(res => {
+            return <Media key={res.data.id} media={res} />;
+          })
         ) : (
           <div>
             <h1>No results for {this.state.query}</h1>
