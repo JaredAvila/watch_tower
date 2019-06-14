@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { apiKey } from "../../keys/keys";
 import { formatTitle } from "../hoc/formatTitle";
 
 import Media from "../Media/Media";
+import Spinner from "../UI/Spinner/Spinner";
 
 import styles from "./SearchResults.module.css";
 
@@ -52,8 +52,7 @@ class SearchResults extends Component {
           })
         ) : (
           <div>
-            <h1>No results for {this.state.query}</h1>
-            <Link to="/">Home</Link>
+            <Spinner />
           </div>
         )}
       </div>
