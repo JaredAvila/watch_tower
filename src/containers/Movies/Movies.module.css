@@ -51,3 +51,7 @@
 .MovieList {
     padding: 0 2rem;
 }
+
+.Spinner {
+    height: 100vh;
+}

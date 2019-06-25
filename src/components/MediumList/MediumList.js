@@ -9,8 +9,7 @@ const MediumList = props => {
     <div className={styles.MediumList}>
       {props.medium
         ? props.medium.map(media => {
-            console.log(media);
-            return <ListItem media={media} />;
+            return <ListItem key={media.data.id} media={media} />;
           })
         : null}
     </div>

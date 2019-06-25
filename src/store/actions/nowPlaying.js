@@ -33,11 +33,13 @@ export const fetchNowPlaying = () => {
       )
       .then(res => {
         const nowPlayingArray = [];
-        const url = "http://image.tmdb.org/t/p/original";
+        const backDropUrl = "http://image.tmdb.org/t/p/original";
+        const url = "http://image.tmdb.org/t/p/w400";
         res.data.results.forEach(movie => {
           nowPlayingArray.push({
             data: movie,
-            imgUrl: url + movie.backdrop_path,
+            backDropUrl: backDropUrl + movie.backdrop_path,
+            imgUrl: url + movie.poster_path,
             //TODO: get like for each movie
             liked: false
           });

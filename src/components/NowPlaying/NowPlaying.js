@@ -10,7 +10,7 @@ const NowPlaying = props => {
         <h1 className={styles.Headline}>In theaters now</h1>
         <div className={styles.Movies}>
           <div className={styles.Main}>
-            <img src={props.movie.imgUrl} alt="Main attraction" />
+            <img src={props.movie.backDropUrl} alt="Main attraction" />
           </div>
           <div className={styles.MovieInfo}>
             <div>
