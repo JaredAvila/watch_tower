@@ -2,4 +2,52 @@
     width: 100%;
     padding: 10rem 0;
     background-color: rgb(24, 24, 24);
+    color: rgb(219, 219, 219);
+}
+
+.Headline {
+    color: rgb(24, 24, 24);
+    width: fit-content;
+    background-color: rgb(169, 253, 229);
+    padding: 1rem 9rem 1rem 7rem;
+    font-size: 3.4rem;
+    clip-path: polygon(0% 0%, 100% 0%, 85% 100%, 0% 100%);
+    margin-bottom: 3rem;
+}
+
+.Container {
+    background-color: rgba(102, 85, 137, 1);
+    width: 70%;
+    margin: auto;
+    border-radius: 4px;
+}
+
+.Controls {
+    display: flex;
+    color: rgb(24, 24, 24);
+    justify-content: space-evenly;
+    background-color: rgb(219, 219, 219);
+    border-radius: 4px 4px 0 0;
+}
+
+.Controls h1 {
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.Controls h1:hover {
+    padding: 1rem;
+    cursor: pointer;
+    background-color: rgb(168, 168, 168);
+    color: white;
+}
+
+.Active {
+    background-color: rgb(168, 168, 168);
+    color: white;
+}
+
+.MovieList {
+    padding: 0 2rem;
 }
