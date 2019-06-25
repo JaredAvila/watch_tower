@@ -1,7 +1,7 @@
 import React from "react";
 import { formatTitle } from "../hoc/formatTitle";
 
-import Media from "../Media/Media";
+import Media from "./Media/Media";
 
 import styles from "./MediumContainer.module.css";
 

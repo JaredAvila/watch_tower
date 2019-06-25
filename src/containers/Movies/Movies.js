@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import * as actions from "../../store/actions";
 
-import MediumContainer from "../../components/MediumContainer/MediumContainer";
+import MediumList from "../../components/MediumList/MediumList";
+
+import * as styles from "./Movies.module.css";
 
 class Movies extends Component {
   componentDidMount() {
@@ -11,10 +13,10 @@ class Movies extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.Movies}>
         <ul>
           {this.props.comingSoon ? (
-            <MediumContainer
+            <MediumList
               medium={this.props.comingSoon}
               title="Upcoming Movies"
             />
