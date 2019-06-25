@@ -4,7 +4,7 @@ import { apiKey } from "../../keys/keys";
 
 const setComingSoonMovies = movies => {
   return {
-    type: actionTypes.SET_UPCOMING_MOVIES,
+    type: actionTypes.SET_COMING_SOON_MOVIES,
     movies
   };
 };

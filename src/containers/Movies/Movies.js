@@ -1,19 +1,43 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../store/actions";
+
+import MediumContainer from "../../components/MediumContainer/MediumContainer";
 
 class Movies extends Component {
+  componentDidMount() {
+    this.props.onFetchComingSoon();
+  }
+
   render() {
     return (
       <div>
-        <h1>Movies</h1>
+        <ul>
+          {this.props.comingSoon ? (
+            <MediumContainer
+              medium={this.props.comingSoon}
+              title="Upcoming Movies"
+            />
+          ) : null}
+        </ul>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    onFetch
+    comingSoon: state.comingSoon.comingSoonMovies
   };
 };
 
-export default Movies;
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetchComingSoon: () => dispatch(actions.fetchComingSoonMovies())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Movies);
