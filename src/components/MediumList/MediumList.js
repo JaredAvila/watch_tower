@@ -7,7 +7,6 @@ import * as styles from "./MediumList.module.css";
 const MediumList = props => {
   return (
     <div className={styles.MediumList}>
-      <h1>{props.title}</h1>
       {props.medium
         ? props.medium.map(media => {
             console.log(media);

@@ -3,6 +3,8 @@
     border: none;
     outline: none;
     border-radius: 2.5rem;
+    width: fit-content;
+    align-self: flex-end;
     font-size: 1.6rem;
     background-color: rgb(86, 218, 194);
     color: rgb(243, 243, 243);
