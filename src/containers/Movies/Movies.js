@@ -1,11 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Movies = () => {
-  return (
-    <div>
-      <h1>Movies</h1>
-    </div>
-  );
+class Movies extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Movies</h1>
+      </div>
+    );
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onFetch
+  };
 };
 
 export default Movies;

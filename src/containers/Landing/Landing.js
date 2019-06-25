@@ -25,7 +25,6 @@ class Landing extends Component {
   }
 
   componentWillUnmount() {
-    console.log(this.props.nowOnAir);
     clearTimeout(this.timer);
   }
 
